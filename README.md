@@ -36,3 +36,11 @@ python manage.py runserver
 ```sh
 python3 manage.py runserver
 ```
+3. Pobieranie werjsi do plik z zależnościami
+```sh
+pip freeze > pczco.txt
+```
+4. Pobieranie werjsi z plik z zależnościami
+```sh
+pip install -r pczco.txt
+```
