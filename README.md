@@ -44,3 +44,7 @@ pip freeze > pczco.txt
 ```sh
 pip install -r pczco.txt
 ```
+4. Puszczanie test jednostkowych
+```sh
+python manage.py test 
+```

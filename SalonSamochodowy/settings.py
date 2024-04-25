@@ -10,34 +10,30 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
+from dotenv import load_dotenv
+# Wczytaj zmienne środowiskowe z pliku .env
 from pathlib import Path
-import sentry_sdk
+load_dotenv()
 
-sentry_sdk.init(
-    dsn="https://04e7779c79efd335b48a6fd330c4f81c@o4506904082186240.ingest.us.sentry.io/4506904090836992",
-    # Set traces_sample_rate to 1.0 to capture 100%
-    # of transactions for performance monitoring.
-    traces_sample_rate=1.0,
-    # Set profiles_sample_rate to 1.0 to profile 100%
-    # of sampled transactions.
-    # We recommend adjusting this value in production.
-    profiles_sample_rate=1.0,
-)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
+from dotenv import load_dotenv
+
+# Wczytaj zmienne środowiskowe z pliku .env
+load_dotenv()
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-+*3wm-8&5h&w3!n@bs@v%7ho0_@g&cva4ozlgg$lghz1jop9f2'
+SECRET_KEY = 'django-insecure-0h)y(%_ci$44zl8-620tz$jf!rt^i%gjrcrzm^p&mwdmlui*f='
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -49,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'SalonSamochodowyApp'
+    'SalonSamochodowyApp',
 ]
 
 MIDDLEWARE = [
@@ -67,7 +63,7 @@ ROOT_URLCONF = 'SalonSamochodowy.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,3 +130,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
